@@ -40,6 +40,8 @@
 
     --font-primary: "Poppins", sans-serif;
     --font-secondary: "DM Sans", sans-serif;
+
+    --base-shape: 0, 35%, 94%;
   }
 }
 
@@ -56,16 +58,5 @@
     background: hsl(var(--bg-page));
 
     color: hsl(var(--gray-300));
-  }
-}
-
-@layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 }

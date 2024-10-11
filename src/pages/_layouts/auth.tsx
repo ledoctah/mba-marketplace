@@ -5,8 +5,8 @@ import Logo from '@/assets/logo.svg';
 
 export function AuthLayout() {
   return (
-    <div className="m-auto grid min-h-screen max-w-[1366px] grid-cols-2">
-      <div className="flex flex-col">
+    <div className="m-auto flex min-h-screen max-w-[1366px]">
+      <div className="fixed flex h-full flex-col">
         <header className="m-10">
           <div className="flex gap-4">
             <img src={Logo} alt="" />

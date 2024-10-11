@@ -63,6 +63,8 @@ export default {
           400: 'hsl(var(--gray-400))',
           500: 'hsl(var(--gray-500))',
         },
+
+        shape: 'hsl(var(--base-shape))',
       },
       fontFamily: {
         primary: 'var(--font-primary)',
