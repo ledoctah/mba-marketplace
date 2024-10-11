@@ -11,21 +11,30 @@ importers:
       '@radix-ui/react-icons':
         specifier: ^1.3.0
         version: 1.3.0(react@18.3.1)
+      '@radix-ui/react-slot':
+        specifier: ^1.1.0
+        version: 1.1.0(@types/react@18.3.11)(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      lucide-react:
-        specifier: ^0.451.0
-        version: 0.451.0(react@18.3.1)
+      hugeicons-react:
+        specifier: ^0.3.0
+        version: 0.3.0(react@18.3.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-helmet-async:
+        specifier: ^2.0.5
+        version: 2.0.5(react@18.3.1)
+      react-router-dom:
+        specifier: ^6.26.2
+        version: 6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^2.5.3
         version: 2.5.3
@@ -393,10 +402,32 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
+  '@radix-ui/react-compose-refs@1.1.0':
+    resolution: {integrity: sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   '@radix-ui/react-icons@1.3.0':
     resolution: {integrity: sha512-jQxj/0LKgp+j9BiTXz3O3sgs26RNet2iLWmsPyRz2SIcR4q/4SbazXfnYwbAr+vLYKSfc7qxzyGQA1HLlYiuNw==}
     peerDependencies:
       react: ^16.x || ^17.x || ^18.x
+
+  '@radix-ui/react-slot@1.1.0':
+    resolution: {integrity: sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@remix-run/router@1.19.2':
+    resolution: {integrity: sha512-baiMx18+IMuD1yyvOGaHM9QrVUPGGG0jC+z+IPHnRJWUAUvaKuWKyE8gjDj2rzv3sz9zOGoRSPgeBVHRhZnBlA==}
+    engines: {node: '>=14.0.0'}
 
   '@rocketseat/eslint-config@2.2.2':
     resolution: {integrity: sha512-kSWN4FOyhTEiD2O6OGL2OG89MHq8HSoDwOVvy6Xqdv1DytdMvOgZsD7xBYsAyYWvwD0P+YR1nIDluVGCV+GNxA==}
@@ -1416,6 +1447,11 @@ packages:
     resolution: {integrity: sha512-lks+lVC8dgGyh97jxvxeYTWQFvh4uw4yC12gVl63Cg30sjPX4wuGcdkICVXDAESr6OJGjqGA8Iz5mkeN6zlD7A==}
     engines: {node: '>= 0.6'}
 
+  hugeicons-react@0.3.0:
+    resolution: {integrity: sha512-znmC+uX7xVqcIs0q09LvwEvJkjX0U3xgT05BSiRV19farS4lPONOKjYT0JkcQG5cvfV0rXHSEAEVNjbHAu81rg==}
+    peerDependencies:
+      react: '>=16.0.0'
+
   iconv-lite@0.4.23:
     resolution: {integrity: sha512-neyTUVFtahjf0mB3dZT77u+8O0QB89jFdnBkd5P1JgYPbPaia3gXXOVL2fq8VyU2gMMD7SaN7QukTB/pmXYvDA==}
     engines: {node: '>=0.10.0'}
@@ -1445,6 +1481,9 @@ packages:
   internal-slot@1.0.7:
     resolution: {integrity: sha512-NGnrKwXzSms2qUUih/ILZ5JBqNTSa1+ZmP6flaIp6KmSElgE9qdndzS3cqjrDovwFdmwsGsLdeFgB6suw+1e9g==}
     engines: {node: '>= 0.4'}
+
+  invariant@2.2.4:
+    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
 
   ipaddr.js@1.9.1:
     resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}
@@ -1713,11 +1752,6 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
-
-  lucide-react@0.451.0:
-    resolution: {integrity: sha512-OwQ3uljZLp2cerj8sboy5rnhtGTCl9UCJIhT1J85/yOuGVlEH+xaUPR7tvNdddPvmV5M5VLdr7cQuWE3hzA4jw==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
 
   lusca@1.6.1:
     resolution: {integrity: sha512-+JzvUMH/rsE/4XfHdDOl70bip0beRcHSviYATQM0vtls59uVtdn1JMu4iD7ZShBpAmFG8EnaA+PrYG9sECMIOQ==}
@@ -2094,12 +2128,33 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-fast-compare@3.2.2:
+    resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
+
+  react-helmet-async@2.0.5:
+    resolution: {integrity: sha512-rYUYHeus+i27MvFE+Jaa4WsyBKGkL6qVgbJvSBoX8mbsWoABJXdEO0bZyi0F6i+4f0NuIb8AvqPMj3iXFHkMwg==}
+    peerDependencies:
+      react: ^16.6.0 || ^17.0.0 || ^18.0.0
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
+
+  react-router-dom@6.26.2:
+    resolution: {integrity: sha512-z7YkaEW0Dy35T3/QKPYB1LjMK2R1fxnHO8kWpUMTBdfVzZrWOiY9a7CtN8HqdWtDUWd5FY6Dl8HFsqVwH4uOtQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+
+  react-router@6.26.2:
+    resolution: {integrity: sha512-tvN1iuT03kHgOFnLPfLJ8V95eijteveqdOSk+srqfePtQvqCExB8eHOYnlilbOcyJyKnYkr1vJvf7YqotAJu1A==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
@@ -2223,6 +2278,9 @@ packages:
 
   sha-1@0.1.1:
     resolution: {integrity: sha512-dexizf3hB7d4Jq6Cd0d/NYQiqgEqIfZIpuMfwPfvSb6h06DZKmHyUe55jYwpHC12R42wpqXO6ouhiBpRzIcD/g==}
+
+  shallowequal@1.1.0:
+    resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
 
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
@@ -2867,9 +2925,24 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
+  '@radix-ui/react-compose-refs@1.1.0(@types/react@18.3.11)(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.11
+
   '@radix-ui/react-icons@1.3.0(react@18.3.1)':
     dependencies:
       react: 18.3.1
+
+  '@radix-ui/react-slot@1.1.0(@types/react@18.3.11)(react@18.3.1)':
+    dependencies:
+      '@radix-ui/react-compose-refs': 1.1.0(@types/react@18.3.11)(react@18.3.1)
+      react: 18.3.1
+    optionalDependencies:
+      '@types/react': 18.3.11
+
+  '@remix-run/router@1.19.2': {}
 
   '@rocketseat/eslint-config@2.2.2(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
@@ -4175,6 +4248,10 @@ snapshots:
       setprototypeof: 1.1.0
       statuses: 1.5.0
 
+  hugeicons-react@0.3.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
   iconv-lite@0.4.23:
     dependencies:
       safer-buffer: 2.1.2
@@ -4202,6 +4279,10 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.2
       side-channel: 1.0.6
+
+  invariant@2.2.4:
+    dependencies:
+      loose-envify: 1.4.0
 
   ipaddr.js@1.9.1: {}
 
@@ -4452,10 +4533,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-react@0.451.0(react@18.3.1):
-    dependencies:
-      react: 18.3.1
 
   lusca@1.6.1:
     dependencies:
@@ -4746,9 +4823,30 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-fast-compare@3.2.2: {}
+
+  react-helmet-async@2.0.5(react@18.3.1):
+    dependencies:
+      invariant: 2.2.4
+      react: 18.3.1
+      react-fast-compare: 3.2.2
+      shallowequal: 1.1.0
+
   react-is@16.13.1: {}
 
   react-refresh@0.14.2: {}
+
+  react-router-dom@6.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      '@remix-run/router': 1.19.2
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-router: 6.26.2(react@18.3.1)
+
+  react-router@6.26.2(react@18.3.1):
+    dependencies:
+      '@remix-run/router': 1.19.2
+      react: 18.3.1
 
   react@18.3.1:
     dependencies:
@@ -4921,6 +5019,8 @@ snapshots:
   setprototypeof@1.1.0: {}
 
   sha-1@0.1.1: {}
+
+  shallowequal@1.1.0: {}
 
   shebang-command@2.0.0:
     dependencies:

@@ -55,6 +55,18 @@ export default {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))',
         },
+
+        gray: {
+          100: 'hsl(var(--gray-100))',
+          200: 'hsl(var(--gray-200))',
+          300: 'hsl(var(--gray-300))',
+          400: 'hsl(var(--gray-400))',
+          500: 'hsl(var(--gray-500))',
+        },
+      },
+      fontFamily: {
+        primary: 'var(--font-primary)',
+        secondary: 'var(--font-secondary)',
       },
     },
   },
