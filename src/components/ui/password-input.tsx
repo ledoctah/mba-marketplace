@@ -42,7 +42,6 @@ const PasswordInput = React.forwardRef<
     <Input
       type={isPasswordShown ? 'text' : 'password'}
       ref={ref}
-      onBlur={() => setIsPasswordShown(false)}
       RightIcon={(props) => (
         <PasswordVisibilityToggleComponent
           onToggle={togglePasswordShown}
