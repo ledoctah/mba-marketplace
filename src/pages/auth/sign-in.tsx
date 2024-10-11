@@ -1,5 +1,6 @@
 import { AccessIcon, ArrowRight02Icon, Mail02Icon } from 'hugeicons-react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,10 +14,10 @@ import { PasswordInput } from '@/components/ui/password-input';
 
 export function SignIn() {
   return (
-    <div className="m-10 flex justify-end">
+    <div className="m-10 ml-auto flex max-w-[630px] justify-end">
       <Helmet title="Acesse sua conta" />
 
-      <Card className="no-scrollbar flex max-h-screen w-full flex-col overflow-y-scroll px-20 py-16">
+      <Card className="my-auto flex w-full flex-col px-20 py-16">
         <CardHeader>
           <h1 className="font-secondary text-2xl font-bold text-gray-500">
             Acesse sua conta
@@ -25,7 +26,7 @@ export function SignIn() {
           <p className="text-sm">Informe seu e-mail e senha para entrar</p>
         </CardHeader>
 
-        <CardContent className="my-12">
+        <CardContent className="my-10 pb-0">
           <form className="flex flex-col gap-5">
             <Input
               placeholder="Seu e-mail cadastrado"
@@ -39,7 +40,7 @@ export function SignIn() {
               LeftIcon={AccessIcon}
             />
 
-            <Button size="2xl" className="mt-12 text-left">
+            <Button size="2xl" className="mt-10 text-left">
               Acessar
               <ArrowRight02Icon className="ml-auto" />
             </Button>
@@ -53,9 +54,12 @@ export function SignIn() {
             variant="outline"
             size="2xl"
             className="mt-5 w-full text-left"
+            asChild
           >
-            Cadastrar
-            <ArrowRight02Icon className="ml-auto" />
+            <Link to="/sign-up">
+              Cadastrar
+              <ArrowRight02Icon className="ml-auto" />
+            </Link>
           </Button>
         </CardFooter>
       </Card>
