@@ -39,11 +39,11 @@ export function DateRangePicker({
             id="date"
             variant={'ghost'}
             className={cn(
-              'justify-start text-left font-medium',
+              'justify-start text-left font-medium text-gray-300',
               !date && 'text-muted-foreground',
             )}
           >
-            <Calendar04Icon className="text-blue-dark mr-2 h-4 w-4" />
+            <Calendar04Icon className="mr-2 h-4 w-4 text-blue-dark" />
 
             {date?.from ? (
               date.to ? (
