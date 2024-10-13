@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { FileInput } from '@/components/ui/file-input';
@@ -62,14 +64,16 @@ export function AddProduct() {
               </Select>
 
               <div className="flex gap-3">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="xl"
-                  className="w-full"
-                >
-                  Cancelar
-                </Button>
+                <Link to="/products" className="w-full">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="xl"
+                    className="w-full"
+                  >
+                    Cancelar
+                  </Button>
+                </Link>
 
                 <Button type="submit" size="xl" className="w-full">
                   Salvar e publicar

@@ -99,14 +99,16 @@ export function EditProduct() {
               </Select>
 
               <div className="flex gap-3">
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="xl"
-                  className="w-full"
-                >
-                  Cancelar
-                </Button>
+                <Link to="/products" className="w-full">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="xl"
+                    className="w-full"
+                  >
+                    Cancelar
+                  </Button>
+                </Link>
 
                 <Button type="submit" size="xl" className="w-full">
                   Salvar e atualizar
