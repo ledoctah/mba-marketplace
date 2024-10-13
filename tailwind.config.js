@@ -65,6 +65,7 @@ export default {
         },
 
         shape: 'hsl(var(--base-shape))',
+        error: 'hsl(var(--error))',
       },
       fontFamily: {
         primary: 'var(--font-primary)',
