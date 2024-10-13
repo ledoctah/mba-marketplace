@@ -13,7 +13,7 @@ export interface InputProps
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, label, LeftIcon, RightIcon, ...props }, ref) => {
     return (
-      <label className="border-b border-input transition-colors focus-within:text-ring">
+      <label className="w-full border-b border-input transition-colors focus-within:text-ring">
         <span className="text-xs font-medium uppercase">{label}</span>
 
         <div className="flex items-center gap-2">

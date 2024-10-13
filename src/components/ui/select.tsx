@@ -11,8 +11,17 @@ type SelectTriggerProps = React.ComponentPropsWithoutRef<
   LeftIcon?: React.ComponentType<HugeiconsProps>;
 };
 
-const Select = SelectPrimitive.Root;
-
+const Select: React.FC<SelectPrimitive.SelectProps & { label?: string }> = ({
+  label,
+  ...props
+}) => (
+  <>
+    <label className="w-full border-b border-input transition-colors focus-within:text-ring">
+      {label && <span className="text-xs font-medium uppercase">{label}</span>}
+      <SelectPrimitive.Root {...props} />
+    </label>
+  </>
+);
 const SelectGroup = SelectPrimitive.Group;
 
 const SelectValue = SelectPrimitive.Value;
@@ -24,7 +33,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-9 w-full items-center whitespace-nowrap border-b border-input bg-transparent py-2 text-base text-gray-400 focus-within:text-primary focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground [&:focus-within>svg:first-child]:!text-primary [&>span]:line-clamp-1',
+      'flex h-9 w-full items-center whitespace-nowrap bg-transparent py-2 text-base text-gray-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground [&:focus-within>svg:first-child]:!text-primary [&>span]:line-clamp-1',
       className,
     )}
     {...props}
