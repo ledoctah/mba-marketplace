@@ -14,7 +14,7 @@ export interface InputProps
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, error, type, label, LeftIcon, RightIcon, ...props }, ref) => {
     return (
-      <label className="flex flex-col transition-colors focus-within:text-ring">
+      <label className="flex w-full flex-col transition-colors focus-within:text-ring">
         <div className="border-b border-input">
           <span className="text-xs font-medium uppercase">{label}</span>
 
@@ -38,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {error && (
-          <div className="text-error mt-1 flex gap-1 text-xs">
+          <div className="mt-1 flex gap-1 text-xs text-error">
             <AlertCircleIcon className="h-4 w-4" />
             <span>{error}</span>
           </div>

@@ -14,11 +14,11 @@ const FileInput = React.forwardRef<HTMLInputElement, Omit<InputProps, 'type'>>(
     return (
       <label
         title={props.title}
+        {...containerProps}
         className={cn(
-          'bg-shape flex h-32 w-32 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl',
+          'flex h-32 w-32 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-shape',
           containerProps?.className,
         )}
-        {...containerProps}
       >
         <ImageUploadIcon className="h-8 w-8 text-primary" />
 
