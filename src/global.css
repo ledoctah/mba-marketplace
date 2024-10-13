@@ -10,6 +10,10 @@
     --gray-400: 0, 0%, 24%;
     --gray-500: 0, 0%, 11%;
 
+    --blue-dark: 201 100% 45%;
+    --blue-base: 201 98% 68%;
+    --blue-light: 198 74% 91%;
+
     --background: 0 0% 100%;
     --foreground: var(--gray-300);
     --card: 0 0% 100%;

@@ -64,6 +64,12 @@ export default {
           500: 'hsl(var(--gray-500))',
         },
 
+        blue: {
+          dark: 'hsl(var(--blue-dark))',
+          base: 'hsl(var(--blue-base))',
+          light: 'hsl(var(--blue-light))',
+        },
+
         shape: 'hsl(var(--base-shape))',
       },
       fontFamily: {
