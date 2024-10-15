@@ -72,6 +72,7 @@ export default {
 
         shape: 'hsl(var(--base-shape))',
         error: 'hsl(var(--error))',
+        success: 'hsl(var(--success))',
       },
       fontFamily: {
         primary: 'var(--font-primary)',
