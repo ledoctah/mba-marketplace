@@ -5,7 +5,7 @@ import { AuthLayout } from './_layouts/auth';
 import { Dashboard } from './app/dashboard/dashboard';
 import { AddProduct } from './app/products/add-product';
 import { EditProduct } from './app/products/edit-product';
-import { ListProducts } from './app/products/list/list-products';
+import { ListProducts } from './app/products/list-products';
 import { SignIn } from './auth/sign-in';
 import { SignUp } from './auth/sign-up';
 

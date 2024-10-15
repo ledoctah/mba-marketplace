@@ -1,8 +1,7 @@
 import React from 'react';
 
+import { ProductStatus } from '@/api/list-products';
 import { cn } from '@/lib/utils';
-
-export type ProductStatus = 'available' | 'sold' | 'cancelled';
 
 type StatusTagProps = React.HTMLAttributes<HTMLDivElement> & {
   status: ProductStatus;
