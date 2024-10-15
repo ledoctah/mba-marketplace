@@ -89,7 +89,7 @@ export function FilterProductsForm({ ...props }: FilterProductsFormProps) {
                   <SelectContent>
                     <SelectItem value="available">Anunciado</SelectItem>
                     <SelectItem value="sold">Vendido</SelectItem>
-                    <SelectItem value="cancelled">Cancelado</SelectItem>
+                    <SelectItem value="cancelled">Desativado</SelectItem>
                   </SelectContent>
                 </Select>
               );
