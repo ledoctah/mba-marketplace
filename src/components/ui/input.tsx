@@ -2,6 +2,7 @@ import { AlertCircleIcon, HugeiconsProps } from 'hugeicons-react';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import { formatMoney } from '@/utils/formatMoney';
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -9,10 +10,18 @@ export interface InputProps
   label?: string;
   LeftIcon?: React.ComponentType<HugeiconsProps>;
   RightIcon?: React.ComponentType<HugeiconsProps>;
+  format?: 'money';
 }
 
+const formatters = {
+  money: formatMoney,
+};
+
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, error, type, label, LeftIcon, RightIcon, ...props }, ref) => {
+  (
+    { className, error, format, type, label, LeftIcon, RightIcon, ...props },
+    ref,
+  ) => {
     return (
       <label className="flex w-full flex-col transition-colors focus-within:text-ring">
         <div className="border-b border-input">
@@ -31,6 +40,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               )}
               ref={ref}
               {...props}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                setTimeout(() => {
+                  if (format) {
+                    const target = e.target as HTMLInputElement;
+
+                    target.value = formatters[format](target.value);
+                  }
+
+                  if (props.onKeyDown) {
+                    props.onKeyDown(e);
+                  }
+                }, 1);
+              }}
             />
 
             {RightIcon && <RightIcon className="h-6 w-6" />}

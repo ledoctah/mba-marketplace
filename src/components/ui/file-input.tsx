@@ -1,5 +1,5 @@
 import { ImageUploadIcon } from 'hugeicons-react';
-import * as React from 'react';
+import React, { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 
@@ -11,12 +11,24 @@ export interface InputProps
 
 const FileInput = React.forwardRef<HTMLInputElement, Omit<InputProps, 'type'>>(
   ({ className, label, containerProps, ...props }, ref) => {
+    const [image, setImage] = useState<string | undefined>();
+
+    function handleChooseImage(event: React.ChangeEvent<HTMLInputElement>) {
+      const input = event.target;
+
+      const image = input.files?.item(0);
+
+      if (image) {
+        setImage(URL.createObjectURL(image));
+      }
+    }
+
     return (
       <label
         title={props.title}
         {...containerProps}
         className={cn(
-          'flex h-32 w-32 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-shape',
+          'relative flex h-32 w-32 cursor-pointer flex-col items-center justify-center gap-4 rounded-xl bg-shape',
           containerProps?.className,
         )}
       >
@@ -29,7 +41,22 @@ const FileInput = React.forwardRef<HTMLInputElement, Omit<InputProps, 'type'>>(
           className={cn('hidden', className)}
           ref={ref}
           {...props}
+          onChange={(e) => {
+            handleChooseImage(e);
+
+            if (props.onChange) {
+              props.onChange(e);
+            }
+          }}
         />
+
+        {image && (
+          <img
+            src={image}
+            alt=""
+            className="absolute h-full w-full rounded-xl object-cover"
+          />
+        )}
       </label>
     );
   },

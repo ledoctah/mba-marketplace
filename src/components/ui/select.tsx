@@ -1,6 +1,11 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import * as SelectPrimitive from '@radix-ui/react-select';
-import { ArrowDown01Icon, HugeiconsProps, Tick02Icon } from 'hugeicons-react';
+import {
+  AlertCircleIcon,
+  ArrowDown01Icon,
+  HugeiconsProps,
+  Tick02Icon,
+} from 'hugeicons-react';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
@@ -11,14 +16,24 @@ type SelectTriggerProps = React.ComponentPropsWithoutRef<
   LeftIcon?: React.ComponentType<HugeiconsProps>;
 };
 
-const Select: React.FC<SelectPrimitive.SelectProps & { label?: string }> = ({
-  label,
-  ...props
-}) => (
+const Select: React.FC<
+  SelectPrimitive.SelectProps & { label?: string; error?: string }
+> = ({ label, error, ...props }) => (
   <>
-    <label className="w-full border-b border-input transition-colors focus-within:text-ring">
-      {label && <span className="text-xs font-medium uppercase">{label}</span>}
-      <SelectPrimitive.Root {...props} />
+    <label className="w-full transition-colors focus-within:text-ring">
+      <div className="border-b border-input">
+        {label && (
+          <span className="text-xs font-medium uppercase">{label}</span>
+        )}
+        <SelectPrimitive.Root {...props} />
+      </div>
+
+      {error && (
+        <div className="mt-1 flex gap-1 text-xs text-error">
+          <AlertCircleIcon className="h-4 w-4" />
+          <span>{error}</span>
+        </div>
+      )}
     </label>
   </>
 );
