@@ -29,6 +29,8 @@ export function ProductStatusTag({
 }: StatusTagProps) {
   const statusProp = statusProps[status];
 
+  console.log(statusProp);
+
   return (
     <div
       className={cn(

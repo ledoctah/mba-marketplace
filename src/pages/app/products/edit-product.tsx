@@ -5,6 +5,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { z } from 'zod';
 
+import { changeProductStatus } from '@/api/change-product-status';
 import { editProduct } from '@/api/edit-product';
 import { findProduct } from '@/api/find-product';
 import { listCategories } from '@/api/list-categories';
@@ -84,6 +85,23 @@ export function EditProduct() {
     },
   });
 
+  const { mutateAsync: changeProductStatusFn } = useMutation({
+    mutationFn: changeProductStatus,
+    onError: () => {
+      toast({
+        title: 'Erro ao atualizar status',
+        description: 'Não foi possível atualizar o status, tente novamente!',
+        variant: 'destructive',
+      });
+    },
+    onSuccess: () => {
+      toast({
+        title: 'Sucesso!',
+        description: 'Status atualizado com sucesso!',
+      });
+    },
+  });
+
   const product = data?.product;
 
   const { handleSubmit, register, control, formState } =
@@ -138,6 +156,19 @@ export function EditProduct() {
       { queryKey: ['product', productId] },
       { product: updatedProduct },
     );
+  }
+
+  async function handleUpdateProductStatus(
+    status: 'available' | 'cancelled' | 'sold',
+  ) {
+    await changeProductStatusFn({ productId: String(productId), status });
+
+    if (product) {
+      updateProductsOnCache({
+        ...product,
+        status,
+      });
+    }
   }
 
   async function handleEditProduct({
@@ -251,12 +282,20 @@ export function EditProduct() {
         </div>
 
         <div className="flex items-end gap-4">
-          <Button variant="ghost" className="h-fit p-0">
+          <Button
+            variant="ghost"
+            className="h-fit p-0"
+            onClick={() => handleUpdateProductStatus('sold')}
+          >
             <Tick02Icon className="mr-2 h-5 w-5" />
             Marcar como vendido
           </Button>
 
-          <Button variant="ghost" className="h-fit p-0">
+          <Button
+            variant="ghost"
+            className="h-fit p-0"
+            onClick={() => handleUpdateProductStatus('cancelled')}
+          >
             <UnavailableIcon className="mr-2 h-5 w-5" />
             Desativar anúncio
           </Button>
@@ -278,7 +317,7 @@ export function EditProduct() {
             <h2 className="font-secondary text-lg">Dados do produto</h2>
 
             <ProductStatusTag
-              className="absolute right-6 top-6 rounded-full bg-blue-dark px-2 py-1 text-xs uppercase text-primary-foreground"
+              className="absolute right-6 top-6 rounded-full px-2 py-1 text-xs uppercase text-primary-foreground"
               status={product?.status || 'available'}
             />
           </CardHeader>
