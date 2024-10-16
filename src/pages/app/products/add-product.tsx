@@ -50,6 +50,7 @@ export function AddProduct() {
   const { data: categories } = useQuery({
     queryKey: ['categories'],
     queryFn: listCategories,
+    staleTime: Infinity,
   });
 
   const { mutateAsync: uploadAttachmentFn } = useMutation({

@@ -13,7 +13,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <Link to={`/products/${product.id}/edit`}>
       <Card
         role="button"
-        className="cursor-pointer border border-transparent transition-all hover:border-blue-base"
+        className="h-full cursor-pointer border border-transparent transition-all hover:border-blue-base"
       >
         <CardHeader className="relative p-1 pb-0">
           <img

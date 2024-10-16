@@ -10,8 +10,10 @@ export interface InputProps
 }
 
 const FileInput = React.forwardRef<HTMLInputElement, Omit<InputProps, 'type'>>(
-  ({ className, label, containerProps, ...props }, ref) => {
-    const [image, setImage] = useState<string | undefined>();
+  ({ className, label, containerProps, defaultValue, ...props }, ref) => {
+    const [image, setImage] = useState<string | undefined>(
+      String(defaultValue),
+    );
 
     function handleChooseImage(event: React.ChangeEvent<HTMLInputElement>) {
       const input = event.target;
